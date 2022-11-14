@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="light dark">
+    <link rel="icon" type="image/png" href="./logos/jcacmLogo400.png">
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"> -->
+    <link rel="stylesheet" href="style.css">
+    <script src="scriptCalculator.js" defer></script>
+    <title>Calculator</title>
+</head>
+<body>
+    <main>
+
+        <!-- Top Section -->
+        <section class="top-container">
+            <div class="very-top">
+                <!-- Solar Power -->
+                <div class="solar-group">
+                    <div class="power-rect">
+                        <div class="p-line first"></div>
+                        <div class="p-line second"></div>
+                        <div class="p-line third"></div>
+                        <div class="p-line fourth"></div>
+                    </div>
+                    <h2 class="power-title">Solar Powered</h2>
+                </div>
+                <!-- Logo -->
+                <logo class="logo-group">
+                    <h1 class="logo-main">OG BAZIK</h1>
+                    <h2 class="logo-version">3000</h2>
+                </logo>
+            </div>
+            <!-- Number Display -->
+            <div class="display-container">
+                <div class="display-rect dark">
+                    <div class="previous" data-previous-operand></div>
+                    <div class="display not-on" data-current-operand></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bottom Section -->
+        <section class="buttons-container">
+            <!-- Top Row -->
+            <div class="top-row">
+                <button class="btn rnd power" data-clear>
+                    <p class="on">ON</p>
+                    <div class="line"></div>
+                    <p class="ce">CE</p>
+                </button>
+                <div class="mem mem-clear" title="single-click for memory recall, double-click to clear memory">
+                    <h2>MRC</h2>
+                    <button class="mem-btn" data-mem-recall></button>
+                </div>
+                <div class="mem mem-minus" title="subtract memory number from current number input">
+                    <h2>M -</h2>
+                    <button class="mem-btn" data-mem-minus></button>
+                </div>
+                <div class="mem mem-plus" title="record number to memory, or add with memory number if already recorded">
+                    <h2>M +</h2>
+                    <button class="mem-btn" data-mem-plus></button>
+                </div>
+            </div>
+            <!-- Main Button Section -->
+            <div class="button-grid">
+                <button class="btn rnd delete" data-delete>DEL</button>
+                <button class="btn sqrt" data-sqrt>√</button>
+                <button class="btn modulo" data-operator>%</button>
+                <button class="btn divide" data-operator>÷</button>
+
+                <button class="btn number" data-number>7</button>
+                <button class="btn number" data-number>8</button>
+                <button class="btn number" data-number>9</button>
+                <button class="btn multiply" data-operator>x</button>
+
+                <button class="btn number" data-number>4</button>
+                <button class="btn number" data-number>5</button>
+                <button class="btn number" data-number>6</button>
+                <button class="btn minus" data-operator>-</button>
+
+                <button class="btn number" data-number>1</button>
+                <button class="btn number" data-number>2</button>
+                <button class="btn number" data-number>3</button>
+                <button class="btn plus" data-operator>+</button>
+
+                <button class="btn number" data-number>0</button>
+                <button class="btn decimal" data-number>.</button>
+                <button class="btn equals" data-equals>=</button>
+
+            </div>
+        </section>
+    </main>
+
+</body>
+</html>
