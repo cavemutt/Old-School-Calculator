@@ -1,3 +1,31 @@
+// Scale Slider
+const scaleInput = document.querySelector('#scale-input')
+const scaleThumb = document.querySelector('#scale-thumb')
+const scaleProgress = document.querySelector('#scale-progress')
+const calculatorScale = document.querySelector('#main-calculator')
+
+scaleInput.addEventListener('input', e => {
+    let scalePercent = (e.target.value * 0.01).toFixed(1)
+    
+    scaleThumb.style.left = e.target.value +'%'
+    scaleThumb.innerText = e.target.value * .1
+    scaleProgress.style.width = e.target.value +'%'
+    calculatorScale.style.transform = `scale(${scalePercent})`
+})
+
+// CALCULATOR
+const previousOperandText = document.querySelector('[data-previous-operand]')
+const currentOperandText = document.querySelector('[data-current-operand]')
+const numberButtons = document.querySelectorAll('[data-number]')
+const operatorButtons = document.querySelectorAll('[data-operator]')
+const equalsButton = document.querySelector('[data-equals]')
+const deleteButton = document.querySelector('[data-delete]')
+const clearButton = document.querySelector('[data-clear]')
+const sqrtButton = document.querySelector('[data-sqrt]')
+const memRecallClearButton = document.querySelector('[data-mem-recall]')
+const memMinusButton = document.querySelector('[data-mem-minus]')
+const memPlusButton = document.querySelector('[data-mem-plus]')
+let memNum
 class Calculator {
     constructor(previousOperandText, currentOperandText) {
         this.previousOperandText = previousOperandText
@@ -90,7 +118,6 @@ class Calculator {
     memMinus() {
         let computation
         computation = this.currentOperand - memNum
-        console.log(computation)
         this.currentOperand = computation
     }
     memPlus() {
@@ -109,20 +136,10 @@ class Calculator {
     }
 }
 
-const previousOperandText = document.querySelector('[data-previous-operand]')
-const currentOperandText = document.querySelector('[data-current-operand]')
-const numberButtons = document.querySelectorAll('[data-number]')
-const operatorButtons = document.querySelectorAll('[data-operator]')
-const equalsButton = document.querySelector('[data-equals]')
-const deleteButton = document.querySelector('[data-delete]')
-const clearButton = document.querySelector('[data-clear]')
-const sqrtButton = document.querySelector('[data-sqrt]')
-const memRecallClearButton = document.querySelector('[data-mem-recall]')
-const memMinusButton = document.querySelector('[data-mem-minus]')
-const memPlusButton = document.querySelector('[data-mem-plus]')
-let memNum
+// CREATE NEW CALCULATOR
 const calculator = new Calculator(previousOperandText, currentOperandText)
 
+// EVENT LISTENERS
 numberButtons.forEach(button => {
     button.addEventListener('click', () => {
         calculator.appendNumber(button.innerText)

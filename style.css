@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap');
-
+/* font-family: 'Orbitron' */
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&family=Permanent+Marker&display=swap');
+/* 'Oswald' and 'Permanent Marker' */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+/* font-family: 'Roboto', sans-serif; */
 
 
 /* Common Styles */
@@ -11,32 +15,172 @@
 
 html {
     scroll-behavior: smooth;
-    scroll-padding-top: 3rem; 
 }
 
 body {
-    width: 100%;
     min-height: 100vh;
     background-color: whitesmoke;
-    background: radial-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.3)), url(./joanna-kosinska-1_CMoFsPfso-unsplash.jpg) center center no-repeat;
+    background: radial-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.4)), url(./joanna-kosinska-1_CMoFsPfso-unsplash.jpg) center center no-repeat;
     background-size: cover;
     background-position: center;
-    font-family: 'Roboto', sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    font-family: 'Roboto', system-ui, sans-serif;
+    display: grid;
+    place-items: center;
 }
+
+header {
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 0.2em 1em;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+header h1 {
+    font-family: 'Orbitron', system-ui, sans-serif;
+    font-size: 1.2rem;
+    color: #222;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    font-family: 'Oswald', system-ui, sans-serif;
+    font-size: 0.9rem;
+    font-weight: 300;
+    cursor: pointer;
+    text-decoration: none;
+    opacity: 0.8;
+    transform-origin: left;
+    transition: 150ms ease;
+    -webkit-transition: 150ms ease;
+    -moz-transition: 150ms ease;
+    -ms-transition: 150ms ease;
+    -o-transition: 150ms ease;
+}
+
+.logo-container img {
+    width: clamp(4em, 0.5em + 8vw,5em);
+}
+
+.logo-container:hover {
+    opacity: 1;
+    scale: 1.1;
+}
+
+
+.scale-container label {
+    text-orientation: upright;
+    font-size: .8rem;
+    text-transform: uppercase;
+    font-family: 'Oswald', system-ui, sans-serif;
+    letter-spacing: 0.05rem;
+    -webkit-text-orientation: upright;
+}
+.input-container {
+    position: relative;
+    opacity: 0.8;
+    transform-origin: right;
+}
+#scale-input {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 100%;
+    height: 0.4em;
+    outline: none;
+    background: rgb(4, 32, 1);
+    border-radius: 2px;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    -ms-border-radius: 2px;
+    -o-border-radius: 2px;
+}
+#scale-input::-moz-range-thumb,
+#scale-input::-webkit-slider-thumb {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 2rem;
+    height: 2em;
+    cursor: pointer;
+    z-index: 3;
+    position: relative;
+    background: transparent;
+    border: none;
+}
+#scale-thumb {
+    position: absolute;
+    width: 1.5rem;
+    height: 1.5rem;
+    border: 1px solid rgb(0 0 0 / 0.5);
+    background: rgb(120, 226, 226);
+    z-index: 2;
+    top: 0%;
+    left: 90%;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    pointer-events: none;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+    text-align: center;
+    font-size: 0.95rem;
+    display: grid;
+    place-content: center;
+    pointer-events: none;
+}
+
+#scale-progress {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 90%;
+    height: .4em;
+    background: rgb(123, 123, 123);
+    border-radius: 2px;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    -ms-border-radius: 2px;
+    -o-border-radius: 2px;
+    pointer-events: none;
+}
+
+.input-container:hover,
+.input-container:focus {
+    opacity: 1;
+}
+
 
 main {
     background: linear-gradient(to bottom, rgb(120, 226, 226), transparent) ;
-    width: max-content;
-    height: max-content;
+    /* width: max-content; */
+    /* height: max-content; */
     border-radius: 1.5rem;
     -webkit-border-radius: 1.5rem;
     -moz-border-radius: 1.5rem;
     -ms-border-radius: 1.5rem;
     -o-border-radius: 1.5rem;
     position: relative;
+    transform: scale(0.9);
+    -webkit-transform: scale(0.9);
+    -moz-transform: scale(0.9);
+    -ms-transform: scale(0.9);
+    -o-transform: scale(0.9);
+    transition: 150ms ease;
+    -webkit-transition: 150ms ease;
+    -moz-transition: 150ms ease;
+    -ms-transition: 150ms ease;
+    -o-transition: 150ms ease;
 }
 
 main::after {
@@ -461,4 +605,21 @@ button:active {
 
 [data-state="selected"] {
     background-color: #555;
+}
+
+footer {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.2em 1em;
+    font-family: 'Oswald', system-ui, sans-serif;
+    opacity: 0.8;
+    cursor: default;
+}
+
+@media only screen and (max-width: 600px) {
+    .logo-container p {
+        visibility: hidden;
+    }
 }

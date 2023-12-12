@@ -4,21 +4,68 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="color-scheme" content="light dark">
-    <link rel="icon" type="image/png" href="./logos/jcacmLogo400.png">
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"> -->
-    <link rel="stylesheet" href="style.css">
-    <script src="scriptCalculator.js" defer></script>
-    <title>Calculator</title>
+    <link rel="icon" type="image/png" href="./logos/jldev-final2-dkblue.png">
+    <link rel="stylesheet" href="./bubbleStyle.css">
+    <link rel="stylesheet" href="./style.css">
+    <title>Old School Calculator</title>
 </head>
 <body>
-    <main>
+
+    <div class="bubble-wrapper">
+
+            
+        <!-- This is the first stop on the tour where Billy introduces himself and explains the tour, it is currently positioned a little bit down from the top of the page -->
+            <div id="bubble-intro" data-bubble="Hi! I'm Silly Billy! Let me take you on a little Bubble tour of this Old School Calculator! Hit the >> button for the next tour stop or the X to end the tour."></div>
+        
+        <!-- This is the last stop on the tour where Billy gives a little outro : currently position it behind the above open-billy-bubble-tour so Billy can show people where they can open the tour again -->
+            <div id="bubble-outro" data-bubble="Ok! Feel free to hit the Billy-paw button anytime to start the tour again. Bye!"></div>
+        
+        <!-- This indicates which element Billy is currently talking about, it will appear at the top left of each element on the tour, except the last stop, it hides to not be confused with the open-tour button -->
+            <img id="bubble-indicator" src="./assets/Billy-paw-400.png" alt="Silly Billy's paw"></img>
+        
+        <!-- These are the elements for the Silly Billy Bubble Tour! -->
+            <div class="silly-billy-bubbles" id="silly-billy-bubbles">
+                <div class="billy-bubble" id="billy-bubble">
+                    <img src="./assets/Billy-whiskers-700.png" alt="Silly Billy's head">
+                </div>
+                <div class="bubble-shaper"></div>
+                <p class="bubble-content" id="bubble-content"></p>
+                <button class="close-bubble bubble-btn" id="close-bubble" title="close Billy Bubbles">X</button>
+                <button class="continue-bubble bubble-btn" id="continue-bubble" title="next Billy Bubble">>></button>
+            </div>
+    </div>
+
+    <!-- CALCULATOR APP -->
+
+    <header>
+        <a class="logo-container" href="https://github.com/cavemutt" target="_blank">
+            <img src="./logos/jldev-final2-dkblue.png" alt="Jennifer Lee Dev logo">
+            <p>Visit Jennifer Lee Dev's repos!</p>
+        </a>
+        <h1>Old-School "Solar" Calculator</h1>
+        <div class="scale-container" id="scale-container" data-bubble="Here you can change the size of the calculator to suit your screen or just for fun!">
+            <label for="scale-input">Calculator Size</label>
+            <div class="input-container">
+                <input type="range" min="0" max="100" value="90" step="10" id="scale-input">
+                <div id="scale-thumb">9</div>
+                <div id="scale-progress"></div>
+            </div>
+        </div>
+
+        <!-- This button will start and end the tour, currently position: absolute in top right corner, but you can put it where you want to -->
+        <button class="open-billy-bubbles-btn start" id="billy-btn" title="open/close the Tour">
+            <img src="./assets/Billy-paw-400.png" alt="Silly Billy's paw to open tour">
+            <p id="billy-btn-tooltip">open/close Bubble Tour</p>
+        </button>
+    </header>
+
+    <main id="main-calculator">
 
         <!-- Top Section -->
-        <section class="top-container">
+        <section class="top-container" id="top-container" data-bubble="This style of calculator, with convex and concave areas, and smooth beveled edges, was very popular in the 1980's. Here, CSS div's, pseudo-elements, custom border-radiuses(radii?), shadows and gradients are used to create this non-battery powered high-tech device!">
             <div class="very-top">
                 <!-- Solar Power -->
-                <div class="solar-group">
+                <div class="solar-group" id="solar-group" data-bubble="This is the environmentally friendly solar power collector. JK! Solar-powered calculators were being used in the 1970's, but it was in 1982 and beyond when they became more efficient, powerful and popular with anyone who wanted to be wicked cool.">
                     <div class="power-rect">
                         <div class="p-line first"></div>
                         <div class="p-line second"></div>
@@ -34,7 +81,7 @@
                 </logo>
             </div>
             <!-- Number Display -->
-            <div class="display-container">
+            <div class="display-container" id="display-container" data-bubble="This is the display, which is simple, as it was in the 80s. It will show the current number you are working with. (Feel free to enter a 'funny' number and turn your monitor/device upside down.)">
                 <div class="display-rect dark">
                     <div class="previous" data-previous-operand></div>
                     <div class="display not-on" data-current-operand></div>
@@ -43,30 +90,30 @@
         </section>
 
         <!-- Bottom Section -->
-        <section class="buttons-container">
+        <section class="buttons-container" id="buttons-container">
             <!-- Top Row -->
             <div class="top-row">
-                <button class="btn rnd power" data-clear>
+                <button class="btn rnd power" data-clear id="power-button" data-bubble="First, press the ON button to power the display. While ON, this button will also clear your current number.">
                     <p class="on">ON</p>
                     <div class="line"></div>
                     <p class="ce">CE</p>
                 </button>
-                <div class="mem mem-clear" title="single-click for memory recall, double-click to clear memory">
+                <div class="mem mem-clear" title="single-click for memory recall, double-click to clear memory" id="memory-recall" data-bubble="The MRC, or memory recall, button will remember a number (if none already recorded) and recall that number on a single-click. Use a double-click to clear the number you have in the memory.">
                     <h2>MRC</h2>
                     <button class="mem-btn" data-mem-recall></button>
                 </div>
-                <div class="mem mem-minus" title="subtract memory number from current number input">
+                <div class="mem mem-minus" title="subtract memory number from current number input" id="memory-minus" data-bubble="The M- (memory minus) button will subtract your memory number from your currently displayed number, or show as a negative if you have no current number displayed.">
                     <h2>M -</h2>
                     <button class="mem-btn" data-mem-minus></button>
                 </div>
-                <div class="mem mem-plus" title="record number to memory, or add with memory number if already recorded">
+                <div class="mem mem-plus" title="record number to memory, or add with memory number if already recorded" id="memory-plus" data-bubble="The M+ (memory plus) button will add your memory number to your currently displayed number, or will just display itself if there's no current number.">
                     <h2>M +</h2>
                     <button class="mem-btn" data-mem-plus></button>
                 </div>
             </div>
             <!-- Main Button Section -->
             <div class="button-grid">
-                <button class="btn rnd delete" data-delete>DEL</button>
+                <button class="btn rnd delete" data-delete id="delete-button" data-bubble="The DEL (delete) button will delete the last number or decimal point you've entered in your currently-displayed number.">DEL</button>
                 <button class="btn sqrt" data-sqrt>√</button>
                 <button class="btn modulo" data-operator>%</button>
                 <button class="btn divide" data-operator>÷</button>
@@ -88,11 +135,20 @@
 
                 <button class="btn number" data-number>0</button>
                 <button class="btn decimal" data-number>.</button>
-                <button class="btn equals" data-equals>=</button>
+                <button class="btn equals" data-equals id="equals-button" data-bubble="You may string together many different calculations, but if you want to see your current total, hit the = equals button. You may continue to do more calculations with that total.">=</button>
 
             </div>
         </section>
     </main>
+
+    <footer>
+        <p>Hand-Coded with Love by Jennifer Lee Dev copyright &copy;2023</p>
+        <p>Background image by Joanna Kosinska on Unsplash</p>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.3/gsap.min.js"></script>
+    <script src="./bubbleScript.js"></script>
+    <script src="./scriptCalculator.js"></script>
 
 </body>
 </html>
