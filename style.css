@@ -67,7 +67,8 @@ header h1 {
     width: clamp(4em, 0.5em + 8vw,5em);
 }
 
-.logo-container:hover {
+.logo-container:hover,
+.logo-container:focus {
     opacity: 1;
     scale: 1.1;
 }
@@ -376,7 +377,6 @@ button:active {
 
 /* Number Display */
 .display-container {
-    /* background: linear-gradient(to top, rgba(255, 255, 255, 0.3), rgba(0, 0, 0, 0.3)); */
     background: linear-gradient(to top right, rgb(112, 156, 156), rgb(164, 231, 231));
     display: flex;
     justify-content: center;
@@ -429,7 +429,6 @@ button:active {
     color: black;
     font-size: 1.4rem;
     font-weight: 500;
-    /* font-style:italic; */
     letter-spacing: 0.1rem;
     word-wrap: break-word;
     word-break: break-all;
@@ -449,7 +448,6 @@ button:active {
 .buttons-container {
     width: 100%;
     height: max-content;
-    /* background: linear-gradient(145deg, rgba(255, 255, 255, 0.3), rgba(0, 0, 0, 0.3)); */
     background: linear-gradient(to top left, rgb(118, 168, 168), rgb(164, 231, 231));
     border-radius: 1.5rem;
     -webkit-border-radius: 1.5rem;
@@ -485,7 +483,6 @@ button:active {
 
 .buttons-container::after {
     content: '';
-    /* background-color: rgb(120, 226, 226); */
     background: linear-gradient(200deg, rgb(112, 156, 156), rgb(142, 194, 194));
     height: 109%;
     width: 4rem;
